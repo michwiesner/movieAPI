@@ -1,0 +1,4 @@
+<h1>Search movie: <small>{{ searchKey }}</small></h1>
+<hr>
+
+<app-peliculas-poster-grid *ngIf="results.length > 0" [movies]="results"></app-peliculas-poster-grid>
