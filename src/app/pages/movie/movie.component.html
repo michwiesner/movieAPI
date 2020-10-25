@@ -1,1 +1,35 @@
-<p>movie works!</p>
+<div *ngIf="movie">
+    <div class="row">
+        <div class="col-2">
+            <h1 class="pointer text-white w-75" (click)="goBack()"><i class="fas fa-arrow-left"></i></h1> &nbsp;
+        </div>
+        <div class="col-10 text-center">
+            <h1>{{ movie.title }}</h1>
+        </div>
+    </div>
+    <hr>
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img [src]="movie.poster_path | poster" class="card-img" [alt]="movie.title">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ movie.title }}</h5>
+                    <p class="card-text">{{ movie.overview }}</p>
+
+                    <div class="row">
+                        <div class="col">
+                            <star-rating [value]="movie.vote_average" totalstars="10" checkedcolor="yellow" uncheckedcolor="gray" size="15px" readonly="false"></star-rating>
+                        </div>
+                        <div class="col text-white">
+                            {{ movie.vote_average | number:'1.1-2' }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

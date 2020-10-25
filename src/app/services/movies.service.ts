@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { MovieDBResponse } from '../interfaces/movie';
 import { tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
+import { MovieDetails } from '../interfaces/movie-details';
 
 @Injectable({
   providedIn: 'root'
@@ -37,5 +38,9 @@ export class MoviesService {
   searchMovie(query): Observable<MovieDBResponse> {
     const params = {...this.params, page: '1', query};
     return this.http.get<MovieDBResponse>(`${this.baseUrl}/search/movie`, { params });
+  }
+
+  getMovieDetails(id: string) {
+    return this.http.get<MovieDetails>(`${this.baseUrl}/movie/${id}`, { params: this.params });
   }
 }

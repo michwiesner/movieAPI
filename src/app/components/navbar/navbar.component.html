@@ -1,12 +1,12 @@
 <nav class="navbar navbar-expand-sm">
-    <a class="navbar-brand" type="button" routerLink="/home" routerLinkActive="router-link-active">Movies app</a>
+    <a class="navbar-brand" type="button" routerLink="/home" routerLinkActive="router-link-active"><i class="fas fa-film"></i> &nbsp; Movies app</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         </ul>
         <div class="form-inline my-2 my-lg-0">
             <input #searchTxt (keyup.enter)="searchMovie(searchTxt.value)" class="form-control mr-sm-2" type="search" placeholder="Search movie" aria-label="Search">
-            <button (click)="searchMovie(searchTxt.value)" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button (click)="searchMovie(searchTxt.value)" class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
         </div>
     </div>
 </nav>

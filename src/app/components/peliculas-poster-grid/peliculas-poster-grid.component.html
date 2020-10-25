@@ -1,9 +1,11 @@
 <div class="row">
     <div class="col-md-3 mb-5" *ngFor="let movie of movies">
-        <img [src]="movie.poster_path | poster" class="img-fluid poster" [alt]=" movie.original_title">
-        <div class="ml-2">
-            <h3>{{ movie.original_title }}</h3>
-        </div>
+        <a type="button" (click)="goToMovie(movie)">
+            <img [src]="movie.poster_path | poster" class="img-fluid poster" [alt]=" movie.original_title">
+            <div class="ml-2">
+                <h3>{{ movie.original_title }}</h3>
+            </div>
+        </a>
         <div class="row">
             <div class="col-10 text-white">
                 <star-rating [value]="movie.vote_average" totalstars="10" checkedcolor="yellow" uncheckedcolor="gray" size="14px" readonly="false"></star-rating>
