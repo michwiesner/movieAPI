@@ -1,0 +1,14 @@
+<!-- Swiper -->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div *ngFor="let actor of cast" class="swiper-slide text-white text-center">
+            <img [src]="actor.profile_path | poster" class="img-fluid" [alt]="actor.name"> {{ actor.name }}
+            <br>
+            <small class="text-secondary">{{ actor.character }}</small>
+        </div>
+
+    </div>
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>

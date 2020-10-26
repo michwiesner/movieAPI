@@ -27,6 +27,12 @@
                         </div>
                     </div>
 
+                    <h5 class="card-title mt-4">Cast members:</h5>
+                    <div class="row m-3" *ngIf="cast.length > 0">
+                        <div class="col">
+                            <app-cast [cast]="cast"></app-cast>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

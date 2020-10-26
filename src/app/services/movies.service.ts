@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { MovieDBResponse } from '../interfaces/movie';
-import { tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { MovieDetails } from '../interfaces/movie-details';
+import { Cast, CreditsDetails } from '../interfaces/credits-details';
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +41,13 @@ export class MoviesService {
     return this.http.get<MovieDBResponse>(`${this.baseUrl}/search/movie`, { params });
   }
 
-  getMovieDetails(id: string) {
-    return this.http.get<MovieDetails>(`${this.baseUrl}/movie/${id}`, { params: this.params });
+  getMovieDetails(id: string): Observable<MovieDetails> {
+    return this.http.get<MovieDetails>(`${this.baseUrl}/movie/${id}`, { params: this.params })
+                    .pipe(catchError(err => of(null)));
+  }
+
+  getCrew(id: string): Observable<Cast[]>  {
+    return this.http.get<CreditsDetails>(`${this.baseUrl}/movie/${id}/credits`, { params: this.params })
+                    .pipe(map(res => res.cast), catchError(err => of(null)));
   }
 }
