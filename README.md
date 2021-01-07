@@ -1,6 +1,6 @@
 # Peliculasapp
 
-web page: https://michwiesner.github.io/movieAPI/home   
+web page: https://michwiesner.github.io/movieAPI
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
